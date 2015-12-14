@@ -1,0 +1,253 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+	background-color: #827839;
+}
+
+nav {
+    width: 100%;
+    height: 50px;
+    background-color: #394382;
+}
+
+#wolfNight{ display: block; background-color: white; float:left; }
+#chatBox{ float:right; }
+#game{margin: auto; padding: 5%; width: 70%;};
+
+nav:nth-child(1) {
+    padding-left: 25px;
+}
+
+.navlink {
+    padding: 5px;
+    padding-top: 12px;
+    padding-left: 20px;
+    color: white;
+    font-size: 1.5em;
+    float: left;
+}
+
+.navlink a, .navlink a:link, .navlink a:visited, .navlink a:hover, .navlink a:active {
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+    background-color: #2C3539;
+    transition: background-color 0.4s ease;
+}
+
+.navlink a:hover {
+    transition: background-color 0.8s ease;
+    background-color: #504A4B;
+}
+#logo {
+	padding-left: 30%; 
+	padding-right:30%;
+	padding-top:150px;
+	padding-bottom:50px;
+	margin: auto; 
+}
+
+.mainForm {
+    height: 300px;
+    width: 350px;
+    margin: 0 auto;
+    font-size: 1.2em;
+}
+
+.mainForm h3 {
+    text-align: center;
+}
+
+.mainForm label {
+    display: inline-block;
+    width: 100px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.signupForm {
+    height: 300px;
+    width: 350px;
+    margin: auto;
+    padding-top: 150px;
+    font-size: 1.2em;
+}
+
+.signupForm h3 {
+    text-align: center;
+}
+
+.signupForm label {
+    display: inline-block;
+    width: 160px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.searchForm {
+    height: 20px;
+    width: 100%;
+    margin: auto;
+	margin-top: 20px;
+    font-size: 1.2em;
+}
+
+.searchForm h3 {
+    text-align: center;
+}
+
+.searchForm label {
+    display: inline-block;
+    width: 160px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1.2em;
+}
+
+.formSubmit {
+    transition: background-color 0.4s ease;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 14px;
+    font-size: 1.2em;
+    width: 90px;
+    background-color:  #394382;
+    border-radius: 2px;
+    padding: 3px 0px;
+    color: white;
+    text-decoration: none;
+}
+
+.formSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+}
+
+.formSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: #394382;
+}
+
+.searchSubmit {
+    transition: background-color 0.4s ease;
+    text-align: center;
+    margin-top: 14px;
+	margin-left: 50px;
+    font-size: 1.2em;
+    width: 90px;
+    background-color:  #394382;
+    border-radius: 2px;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.searchSubmit:link, .formSubmit:visited, .formSubmit:hover, .formSubmit:active {
+    color: white;
+}
+
+.searchSubmit:hover {
+    transition: background-color 0.4s ease;
+    background-color: #394382;
+}
+
+
+#user, #pass, #pass2, #wWin, #wLoss, #vWin, #vLoss {
+    text-align: center;
+    font-size: 1.1em;
+    width: 180px;
+    border-radius: 6px;
+}
+
+#user:focus, #pass:focus, #pass2:focus, #wWin:focus, #wLoss:focus, #wWin:focus, #wLoss:focus {
+    outline: none;
+    box-shadow: 0px 0px 1px 1px #55acee;
+}
+
+#errorMessage {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: red;
+    font-style: italic;
+}
+
+#result {
+	width:49%;
+	height:90%;
+    margin-top: 50px;
+	float: right;
+}
+
+#stats {
+	width:49%;
+	height:90%;
+    margin-top: 50px;
+	float:left; 
+}
+
+.player {
+    width: 100%;
+    border: 2px solid #55acee;
+    border-radius: 4px;
+    background-color: #394382;
+    padding: 30px;
+	height: 80%;
+    min-height:60px;
+}
+
+
+h3.playerls {
+    float:left;
+    width: 300px;
+    font-weight: bold;
+    font-size: 1.5em;
+	margin-top: 50px;
+	color: white;
+}
+
+h2.main {
+    width: 800px;
+    font-weight: bold;
+	margin-left: 50px;
+	text-decoration: underline;
+    font-size: 2em;
+	color: black;
+}
+
+h2.mainTitle {
+    width: 800px;
+    font-weight: bold;
+	padding-top:200px;
+	padding-bottom:50px;
+	text-align: center;
+    font-size: 4em;
+	color: black;
+}
+
+
+h2.title {
+    float:left;
+    width: 500px;
+    font-weight: bold;
+	margin: auto; 
+	text-decoration: underline;
+    padding: auto;
+	text-align: center; 
+    font-size: 3em;
+	color: white;
+}
+
+h3.playerrs {
+    float:right;
+    text-align: left;
+    width: 300px;
+    font-weight: bold;
+    font-size: 1.5em;
+	margin-top: 50px;
+	color: white;
+}

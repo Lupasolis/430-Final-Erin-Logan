@@ -1,0 +1,25 @@
+extends ./base.jade
+block append style
+    link(rel="stylesheet", type="text/css", href="/assets/style.css")
+block body
+  nav
+    .navlink
+      a(href="/login") Login
+    .navlink
+      a(href="/signup") Sign up
+   #game
+      label(for='ballot') Vote:
+      input#ballot(name='ballot', type='text')
+      input#vote(type='button', value='Submit')
+      br
+      label(for='message') Message:
+      input#message(name='message', type='text')
+      input#send(type='button', value='send')
+      canvas#wolfNight(width='600', height='480')
+        | Your browser does not support the HTML5 canvas element. Please switch to a browser that does in order to play this game.
+      #chatBox
+        textarea#chat(rows='30', cols='40', readonly='') 	
+block scripts
+        script(src="/socket.io/socket.io.js")
+        script(src="/assets/client.js")
+        script(src="/assets/game.js")

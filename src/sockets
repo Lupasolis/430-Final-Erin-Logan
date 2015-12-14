@@ -1,0 +1,55 @@
+var io; //our socket.io server (passed in from the app)
+var redis; //our redis connnection (passed in from the app)
+
+//function called by the server to set up the websockets
+//receives the socket.io server and the redis connection
+var configureSockets = function(socketio, redisClient) {
+	io = socketio; 
+    redis = redisClient;
+	
+    //on new socket connections
+    //new socket connection is passed in
+	io.sockets.on('connection', function(socket) { 
+    
+        //when the client sends a join event to the server
+		socket.on('join', function(data){
+            //add the socket to the 'livefeed' room
+            //Remember rooms are groups of connections
+            //In this case, we just group everyone into the same room
+            //We assume our connection is going out to everyone
+            socket.join('livefeed');
+		});
+		
+        //when the client disconnects from the server
+		socket.on('disconnect', function(data){
+            //remove them from the 'livefeed' room
+            socket.leave('livefeed'); 
+		});
+	});
+    
+    //Redis event listener for "message" events which get fired by 
+    //subscriptions. You can subscribe to multiple channels.
+    //The message event sends you the channel and the message
+    redis.on('message', function(channel, message) {
+        //The way this works is this code subscribes to a channel on redis. When redis
+        //gets a message on that channel, it sends it to this code. This allows us to quickly send
+        //messages across servers without knowing how many servers are publishing or subscribing or
+        //even what servers they are. This means we can scale many servers for many different purposes
+        //all unaware of each other, but transferring data between them via redis.
+        
+        //When this code receives a message, then it will then update its websocket clients
+    
+        //we are only subscribed to one channel, so I am not checking the channel
+        
+        //Send out a the message from redis to everyone in our socket.io livefeed room
+        io.sockets.in('livefeed').emit('update', message);
+    });
+    
+    //subscribe redis to the 'updateChannel'. The channel name is arbitrary as long as you are consistent
+    //You must publish and listen on the same channel names, but they are just strings. 
+    //Now this code will be added to the list of subscribed clients in redis. When someone publishes
+    //to the 'updateChannel' channel, redis will send out the mesage to this code
+    redis.subscribe('updateChannel');
+};
+
+module.exports.configureSockets = configureSockets;
